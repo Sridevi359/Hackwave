@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FinFit</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Today's Tip</h2>
+      <div class="tip">
+        <div class="tip-text" id="tiptext">Save 20% of salary -- automate transfers on payday.</div>
+        <div styel="margin-top:10px;">
+          <button id="newTipBtn">New Tip</button>
+          <button id="addSampleBtn">Add sample data</button>
+          <button id="exportJsonbBtn">Export json</button>
+        </div>
+      </div>
+      <h2>Quick Add Transaction</h2>
+      <div class="transaction">
+        <div class="input-row">
+          <input type="text" id="titleInput" placeholder="Title(e.g.,Coffee)"/>
+          <input tyoe="number" id="amountInput" placeholder="Amount" min="0"/>
+          <select id="typeSelect">
+            <option value="Expense">Expense</option>
+            <option value="Income">Income</option>
+          </select>
+          <button class="add-btn" id="addTransactionBtn">Add</button>
+        </div>
+      </div>
+      <h2>Recent</h2>
+      <div id="recentList" style="min-height"40px;color:#bbb;font-style:italic;">No recent transactions</div>
+      <h2>Learning-short Modules</h2>
+      <div class="module"data-module="Budgeting 101">
+        <b>Budgeting</b>
+        <p>Make a simple plan"list all income,list all expenses.Trim one non-essential expense this week.</p>
+        <button class="mark-learned-btn">Mark learned</button>
+      </div>
+      <div class="module" data-module="Debt&EMI">
+        <b>Debt&EMI</b>
+        <p>Prioritize high interest debt first.Always pay more than minimum if possible.</p>
+        <button class="mark-learned-btn">Mark learned</button>
+        <div class="module" data-module="Investing basics">
+          <b>Investing basics</b>
+          <p>SIP, diversification,long-term horizon beats timing the market</p>
+          <button class="mark-learned-btn">Mark learned</button>
+        </div>
+        <h2>Goals</h2>
+        <div class="goal">
+          <input type="text" id="goalName" placeholder="Goal(e.g.,New car)"/>
+          <input type="number" id="goalTarget" placeholder="Target/-"min="0"/>
+          <button id="addGoalBtn">Add Goal</button>
+        </div>
+        <h2>Budget vs Spend</h2>
+        <div class="budget-spend">
+          <div>Budget:/-<span id="budgetDisplay">45355</span></div>
+        </div>
+        <h2>Actions</h2>
+        <div class="actions">
+          <button id="simulateOverspendBtn">Simulate overspend</button>
+          <button id="resetDataBtn">Reset data</button>
+        </div>
+        <div class="balance-section">
+          <div class="balance-row">
+            <div>Budget</div>
+            <input type="number" id="budgetInput" value="45355"/>
+            <button id="saveBudgetBtn">Save</button>
+          </div>
+          <div>
+            Remaining:₹<span id="remainingDisplay">45355</span>
+          </div>
+        </div>
+        <div class="quick-tips">
+          <b>Quick Tips</b>
+          <div><strong>50/30/20</</strong>Needs/Wants/Saving</div>
+          <div><strong>Emergency fund</strong>3-6 months of expenses</div>
+          <div><strong>SIP for long term</strong>Start small,be consistent</div>
+        </div>
+        <h2>Shortcuts</h2>
+        <div class="shortcuts">
+          <button>Learn</button>
+          <button>Tracker</button>
+          <button>Goals</button>
+        </div>
+        <div style="font-size:11px; color:#777;margin-top:20px;">
+        </div>
+      </div>
+  </body>
