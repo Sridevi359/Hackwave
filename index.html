@@ -4,6 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FinFit</title>
+    <style>
+      body{
+        font-family:Arial,sans-serif;
+        background:#121212;
+        color:#ddd;
+        margin:0;
+        padding:20px;
+      }
+      h2{
+        font-weight:normal;
+        margin-top:30px;margin-bottom:10px;
+        border-bottom:1px solid #444;
+        padding-bottom:4px;
+      }
+      .tip,.transaction,.module,.goal,.budget-spend,.action,.shortcut,.balance-section,.quick-tips{
+        background:#222;
+        border-radius:10px;
+        padding:15px 20px;
+        margin-bottom:18px;
+      }
+      .tip.tip-text{
+        background:#222;
+        padding:10px;
+        border-radius:6px;
+      }
+      button,input[type="text"],
+      input[type="number"],select{
+        border-radius:12px;
+        border:8px 14px;
+        margin:5px 0;
+        outline:none;
+        font-size 14px;
+      }
+      button{
+        background:linear-gradient(90 deg,#4e54c8,#8f94fb);
+        color:white;
+        cursor:pointer;
+        transition:background 0.3s ease;
+      }
+      button:hover{
+        background:liner-gradient(90 deg,#8f94fb,#4e54c8);
+      }
+      add-btn,.expense-btn{
+        min-width:90px;
+        font-weight:600;
+      }
+      .input-row{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        align-items:center;
+      }
+      .input-row input,.input-row select{
+        flex:1;
+        max-width:200px;
+      }
+      .module p{
+        font-size:14px;
+        margin:10px 0 12px 0;
+        color:#aaa;
+      }
+      .module button{
+        background:#444;
+      }
+      .goal input[type="text"],.goalinput[type="number"]{
+        width:140 px;
+      }
+      .budget-spend{
+        display:flex;
+        justify-content:space-between;
+        font-size:16px;
+        padding:10px 20px;
+      }
+      .balance-section{
+        margin-top:30 px;
+      }
+      .balance-section .balance-row{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        margin-bottom:15px;
+      }
+      .balance-section input[type="number']{
+        width:120px;
+      }
+      .quick-tips{
+        font-size:14px;
+        line-height:1.5;
+      }
+      .quick-tips strong{
+        display:block;
+        margin-top:8px;
+        color:#eee;
+      }
+      .action button{
+        width:100%;
+        background:#333;
+        margin:8px 0;
+      }
+      .shortcuts button{
+        width:100%;
+        background:#333;
+        margin:6px 0;
+      }
+      /*scroll container for small screens*/
+      .container{
+        max-width:420px;
+        margin:auto;
+      } 
+    </style>
   </head>
   <body>
     <div class="container">
@@ -19,7 +129,7 @@
       <h2>Quick Add Transaction</h2>
       <div class="transaction">
         <div class="input-row">
-          <input type="text" id="titleInput" placeholder="Title(e.g.,Coffee)"/>
+          <input type="text" id="titleInput" placeholder="Title(e.g.,Coffee)"/
           <input tyoe="number" id="amountInput" placeholder="Amount" min="0"/>
           <select id="typeSelect">
             <option value="Expense">Expense</option>
