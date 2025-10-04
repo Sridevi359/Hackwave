@@ -195,4 +195,140 @@
         <div style="font-size:11px; color:#777;margin-top:20px;">
         </div>
       </div>
+      <script>
+        const tips=["Save 20% of salary--automate transfres on payday.",
+                    "Track your expenses daily to stay within budget.",
+                    "Build an emergency fund with 3-6 months of expenses.",
+                    "Invest consistently with SIPs for long-term growth.",
+                    "Prioritize paying high-interest debt first."];
+        const tip Text=document.getElementById('tipText');
+        const newTipBtn=document.getElementById('newTipBtn');
+        const addSampleBtn=document.getElementById('addSampleBtn');
+        const recentList=document.getElementById('recentList');
+        const titleInput=document.getElementById('titleInput');
+        const amountInput=document.getElementById('amountInput');
+        const typeSelect=document.getElementById('typeSelect');
+        const addTransactionBtn=document.getElementById('addTransactionBtn');
+        const goalName=document.getElementById('goalName');
+        const goalTarget=document.getElementById('goalTarget');
+        const addGoalBtn=document.getElementById('addGoalBtn');
+        const budgetInput=document.getElementById('budgetInput');
+        const saveBudgetBtn=document.getElementById('saveBudgetBtn');
+        const budgetDisplay=document.getElementById('budgetDisplay');
+        const spentDisplay=document.getElementById('spentDisplay');
+        const remainingDisplay=document.getElementById('remainingDisplay');
+        const simulateOverspendBtn=document.getElementById('simulateOverspendBtn');
+        const resetDataBtn=document.getElementById('resetDataBtn');
+        let transactions=[];
+        let goals=[];
+        let budget=45355;
+        let spent=0;
+        function updateRecent(){
+          if(transactions.length==0){
+            recentList.textContext='No recent transactions,';
+            return;
+          }
+          recentList.innerHTML = '';
+    transactions.slice().reverse().forEach(tx => {
+      const div = document.createElement('div');
+      div.textContent = tx.type + ": " + tx.title + " ₹" + tx.amount;
+      recentList.appendChild(div);
+        });
+      }
+        function updateBudgetSpent() {
+          spent=transactions.reduce((sum,t) =>
+            t.type==='Expense'?sum+t.amount:sum,0);
+          budgetDisplay.textContext=budget.toLocalString();
+          spentDisplay.textContent=spent.toLocalString();
+          remainingDisplay.textContent=(budget-spent).toLocalString();
+        }
+        addTransactionBtn.addEventListener('click',()=>{
+          const title=titleInput.value.trim();
+          const amount=Number(amountInput.value);
+          const type=typeSelect.value;
+          if(!titile||!amount||amount<=0){
+            alert('please enter valid title and amount');
+            return;
+            }
+          transactions.push({title,amount,type});
+          titileInput.value=";
+            amountInput.value=";
+            updateRecent();
+            updateBudgetSpent();
+        });
+        newTipBtn.addEventListener('click',()=>{
+          const currentTip=tipText.textContent;
+          let nextTip;
+          do{
+            nextTip=tips[Math.floor(Math.random()*tips.length)];
+        }
+            while(nextTip===currentTip);
+          tipText.textContent=nextTip;
+        });
+        addSampleBtn.addEventListener('click',()=>{
+          transactions=[{title:'Coffee',amount:75,type:'Expense'},
+                        {title:'salary',amount:50000,type:'Income'},
+                        {title:'Groceries',amount:4000,type:'Expenses'},
+                        {title:'Investment',amount:5000,type:'Expenses'}
+                        ];
+          updateRecent();
+          updateBudgetSpent();
+                                    });
+        exportJsonBtn.addEventListener('click',()=>{
+          const data={
+            tip:tipText.textContent,
+            transactions,
+            goals,
+            budget,
+            spent
+          };
+          alert(JSON.stringify(data,null,2));
+                                                 });
+        addGoalBtn.addEventListener('click',()=>{
+          const name=goalNmae.value.trim();
+          const target=Number(goalTarget.value);
+          if(!name||!target||target<=0){
+            alert('please enter valid goal and target');
+            return;
+          }
+          goals.push({name,target});
+          goalName.value=";
+          goalTarget.value=";
+            alert('Goal added:'+name+'for ₹'+target.toLocalString());
+        });
+        saveBudgetBtn.addEventListener('click',()=>{
+          const val=Number(budgetInput.Value);
+          if(!val||val<=0){
+            alert('Enter a valid budget');
+            return;
+          }
+          budget=val;
+          updateBudgetSpent();
+        });
+        simulateOverspendBtn.addEventListener('click',()=>{
+          transactions.push({title:'Overspend',amount:budget+1000,type:'Expense'});
+          updateRecent();
+          updateBudgetSpent();
+                           });
+        resetDataBtn.addEventListener('click',()=>{
+          if(confirm('Are you sure you want to reset all data?')){
+            transactions=[];
+            goals=[];
+            budget=45355;
+            budgetInput.value=budget;
+            updateRecent();
+            updateBudgetSpent();
+              }
+        });
+           document.querySelectorAll('.mark-learned-btn').forEach(button=>{
+             button.addEventListener('click',()=>{
+               button.textContent='Learned✓';
+               button.disabled=true;
+               button.style.backgroundcolor='#4caf50';
+             });
+           });
+        updateRecent();
+        updateBudgetSpent();
+      </script>
   </body>
+</html>
