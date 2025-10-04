@@ -86,3 +86,70 @@
         </div>
       </div>
   </body>
+  <script>
+    //Tips array for new tip button const tips=[
+    "save 20% of salary-automate transfers on payday.",
+      "Track your expenses daily to stay within budget.',
+      "Build an emergency fund with 3-6 months expenses.",
+      "Invest consistently with SIPs for long-term growth.",
+      "prioritize paying high-interest deby first."
+    ];
+    const tip Text=
+      document.getElementById('tipText');
+    const newTipBtn=
+      document.getElementById('newTipBtn');
+    const addSampleBtn=
+      document.getElementById('assSampleBtn');
+    const exportJsonBtn=
+      documentgetElementById('exportjsonBtn');
+    const recentlist=
+      document.getElementById('recentList');
+    const titileInput=
+      document.getElementById('titleInput');
+    const amountInput=
+      document.getElementById('amountInput');
+    const typeSelect=
+      document.getElementById('typeSelect');
+    const addTransactionBtn=
+      document.getElementById('addTransactionBtn');
+    const goalName=
+      document.getElementById('goalName');
+    const goalTarget=
+      document.getElementById('goalTarget');
+    const addGoalBtn=
+      document.getElementById(('addGoalBtn');
+    const budgetInput=
+      document.getElementById('budgetInput');
+    const saveBudgetBtn=
+      document.getElementById(saveBudgetBtn');
+    const budgetDisplay=
+      document.getElementById('budgetDisplay');
+    const spentDisplay=
+      document.getElementById('spentDisplay');
+    const remainingDisplay=
+      document.getElementById('remainingDisplay');
+    const simulateOverSpendBtn=
+      document.getElementById=('simulateOverSpendBtn');
+    const resetDataBtn=
+      document.getElementById('resetDataBtn');
+
+    let transactions=[];
+    let goals=[];
+    let budget=45355;
+    let spent=0;
+
+    function updateRecent(){
+      if(transaction.length ==0){
+        recentList.textContent='no recent transaction.';
+        return;
+      }
+      recentList.innerHTML=";
+        transactions.slice().reverse().forEach(tx
+Element('div');
+      div.textcontent=tx.type+":"+txtitle+""+tx.amount;
+      recentList.appendChild(div);
+    });
+    }
+      
+    const
+  </script>
